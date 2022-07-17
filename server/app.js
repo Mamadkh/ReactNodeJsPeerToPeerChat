@@ -11,9 +11,13 @@ const port = 8000
 app.use(cors())
 var server = app.listen(
     port, () => {
-        console.log(`Server is running on the pport no:${port}`.green)
+        console.log(`Server is running on the port no:${port}`.green)
     }
 )
+
+app.get('/test',(req,res)=>{
+    res.send({'result': 'Test is Ok.'})
+})
 
 const io = socket(server)
 
