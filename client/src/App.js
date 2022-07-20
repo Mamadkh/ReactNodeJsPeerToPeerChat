@@ -5,7 +5,7 @@ import Chat from './chat/chat'
 import Process from './process/process'
 import Home from './home/home'
 
-import { BrowserRouteras, Router, Switch, Route } from 'react-router-dom'
+import { Routes, Router, Route, BrowserRouter } from 'react-router-dom'
 
 import './App.scss'
 import React from 'react'
@@ -32,22 +32,36 @@ function Appmain(props) {
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Router>
-          <div className='App'>
-            <Switch>
-              <Route path='/' exact>
-                <Home socket={socket}></Home>
-              </Route>
-              <Route path='/chat/:roomname/:username'
-                component={Appmain}>
-              </Route>
-            </Switch>
-          </div>
-        </Router>
-      </div>
-    </Router>
+
+    <div className='App'>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/'  element={<Home socket={socket}></Home>}>
+            
+          </Route>
+          <Route path='/chat/:roomname/:username'
+            component={Appmain}>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+
+    // <Router>
+    //   <div className="App">
+    //     <Router>
+    //       <div className='App'>
+    //         <Switch>
+    //           <Route path='/' exact>
+    //             <Home socket={socket}></Home>
+    //           </Route>
+    //           <Route path='/chat/:roomname/:username'
+    //             component={Appmain}>
+    //           </Route>
+    //         </Switch>
+    //       </div>
+    //     </Router>
+    //   </div>
+    // </Router>
   );
 }
 
