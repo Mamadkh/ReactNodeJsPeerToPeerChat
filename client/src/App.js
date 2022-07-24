@@ -11,7 +11,9 @@ import './App.scss'
 import React from 'react'
 import io from 'socket.io-client'
 
-const socket = io.connect('/')
+
+
+
 
 function Appmain(props) {
   return (
@@ -30,14 +32,13 @@ function Appmain(props) {
   )
 }
 
+const socket = io.connect('/')
 function App() {
   return (
-
     <div className='App'>
       <BrowserRouter>
         <Routes>
           <Route path='/'  element={<Home socket={socket}></Home>}>
-            
           </Route>
           <Route path='/chat/:roomname/:username'
             component={Appmain}>

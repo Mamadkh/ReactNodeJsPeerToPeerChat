@@ -7,7 +7,9 @@ function Homepage({ socket }) {
     const [roomname, setroomname] = useState('')
 
     const sendData = () => {
+        alert('SendData')
         if (username !== "" && roomname !== "") {
+            alert('calling joinRoom '+ username + roomname)
             socket.emit("joinRoom", { username, roomname })
         } else {
             alert("Enter username and roomname...!")
